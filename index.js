@@ -7,10 +7,16 @@ const errorHandler = require('./middleware/error');
 const routes = require('./routes');
 const pkg = require('./package.json');
 
-const { port, db, secret } = config;
+const { port, dbUrl, secret } = config;
 const app = express();//inicializa o express    const app centraliza as configurações
 
 // TODO: Conexión a la Base de Datos (MongoDB o MySQL)
+try {
+  mongoose.connect(dbUrl);
+  console.log('Conectado ao banco');
+  } catch (error) {
+  console.log(`Erro: ${error}`);
+  }
 
 app.set('config', config);
 app.set('pkg', pkg);
