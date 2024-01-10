@@ -8,7 +8,7 @@ const routes = require('./routes');
 const pkg = require('./package.json');
 
 const { port, dbUrl, secret } = config;
-const app = express();//inicializa o express    const app centraliza as configurações
+const app = express();//inicializa o express || const app centraliza as configurações
 
 // TODO: Conexión a la Base de Datos (MongoDB o MySQL)
 try {
